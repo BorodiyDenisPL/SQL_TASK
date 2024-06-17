@@ -7,12 +7,13 @@ The output should contain three columns: 'user_id', 'total_listen_duration', and
 Table: listening_habits
 
 -- Solution --
-
 SELECT 
     user_id,
-    ROUND(SUM(duration) / 60.0) AS total_listen_duration,
+    ROUND(SUM(listen_duration) / 60.0, 0) AS total_listen_duration,
     COUNT(DISTINCT song_id) AS unique_song_count
-FROM 
+FROM  
     listening_habits
 GROUP BY 
+    user_id
+ORDER BY 
     user_id;
