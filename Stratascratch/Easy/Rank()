@@ -1,0 +1,12 @@
+Пример запроса с использованием RANK()
+Предположим, у вас есть таблица employees с колонками employee_id, name и salary, и вы хотите получить топ-2 зарплат с учетом одинаковых значений.
+
+
+SELECT employee_id, name, salary
+FROM (
+    SELECT employee_id, name, salary,
+           RANK() OVER (ORDER BY salary DESC) as rank
+    FROM employees
+) ranked_employees
+WHERE rank <= 2
+ORDER BY rank, salary DESC;
