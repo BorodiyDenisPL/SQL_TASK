@@ -4,11 +4,13 @@ Table: amazon_shipment
 
 
 SELECT 
-    CONCAT(YEAR(shipment_date), '-', LPAD(MONTH(shipment_date), 2, '0')) AS year_month,
-    COUNT(DISTINCT CONCAT(shipment_id, '-', sub_id)) AS shipment_count
+    CONCAT(YEAR(shipment_date), '-', RIGHT('0' + CAST(MONTH(shipment_date) AS VARCHAR(2)), 2)) AS year_month,
+    COUNT(DISTINCT CONCAT(CAST(shipment_id AS VARCHAR), '-', CAST(sub_id AS VARCHAR))) AS shipment_count
 FROM 
-    shipments
+    amazon_shipment
 GROUP BY 
-    year_month
+    YEAR(shipment_date),
+    MONTH(shipment_date)
 ORDER BY 
-    year_month;
+    YEAR(shipment_date),
+    MONTH(shipment_date);
