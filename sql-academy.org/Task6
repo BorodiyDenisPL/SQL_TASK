@@ -1,0 +1,7 @@
+Какие компании совершали перелеты на Boeing
+
+select distinct c.name
+from company c 
+join trip t  
+ON t.company = c.id
+where plane = 'Boeing';
