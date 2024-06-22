@@ -1,0 +1,4 @@
+Вывести названия всеx авиакомпаний
+
+select name
+from company;
