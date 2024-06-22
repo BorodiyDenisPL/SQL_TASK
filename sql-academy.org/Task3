@@ -1,0 +1,5 @@
+Вывести все рейсы, совершенные из Москвы
+
+select * 
+from trip
+where town_from = 'Moscow';
