@@ -1,0 +1,5 @@
+Вывести имена людей, которые заканчиваются на "man"
+
+select name
+from passenger
+where name LIKE '%man';
