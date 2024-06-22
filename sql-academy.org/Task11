@@ -1,0 +1,10 @@
+Выведите пассажиров с самым длинным ФИО. Пробелы, дефисы и точки считаются частью имени.
+
+SELECT 
+    name
+FROM
+    passenger
+ORDER BY
+    LENGTH(name) DESC
+limit 1;
+
